@@ -231,7 +231,7 @@ module RubyCAS
         st = controller.session[:cas_last_valid_ticket]
         delete_service_session_lookup(st) if st
         controller.send(:reset_session)
-        controller.send(:redirect_to, client.logout_url(nil, referer))
+        controller.send(:redirect_to, client.logout_url(referer, referer))
       end
       
       def unauthorized!(controller, vr = nil)
